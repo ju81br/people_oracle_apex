@@ -1,0 +1,77 @@
+prompt --application/shared_components/workflow/workflows/new
+begin
+--   Manifest
+--     WORKFLOW: New
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.11.30'
+,p_release=>'24.2.11'
+,p_default_workspace_id=>8596491594951640
+,p_default_application_id=>100
+,p_default_id_offset=>0
+,p_default_owner=>'APP_APEX'
+);
+wwv_flow_imp_shared.create_workflow(
+ p_id=>wwv_flow_imp.id(10825905985558606)
+,p_name=>'New'
+,p_static_id=>'New'
+,p_title=>'New'
+);
+wwv_flow_imp_shared.create_workflow_version(
+ p_id=>wwv_flow_imp.id(10826062933558607)
+,p_workflow_id=>wwv_flow_imp.id(10825905985558606)
+,p_version=>'New'
+,p_state=>'DEVELOPMENT'
+);
+wwv_flow_imp_shared.create_workflow_activity(
+ p_id=>wwv_flow_imp.id(10826123249558608)
+,p_workflow_version_id=>wwv_flow_imp.id(10826062933558607)
+,p_name=>'Start'
+,p_static_id=>'New'
+,p_display_sequence=>10
+,p_activity_type=>'NATIVE_WORKFLOW_START'
+,p_diagram=>'{"position":{"x":700,"y":970},"z":1}'
+);
+wwv_flow_imp_shared.create_workflow_activity(
+ p_id=>wwv_flow_imp.id(10826291581558609)
+,p_workflow_version_id=>wwv_flow_imp.id(10826062933558607)
+,p_name=>'Activity'
+,p_static_id=>'New_1'
+,p_display_sequence=>20
+,p_activity_type=>'NATIVE_PLSQL'
+,p_activity_code=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'DBMS_OUTPUT.PUT_LINE(''TESTE'');',
+''))
+,p_activity_code_language=>'PLSQL'
+,p_location=>'LOCAL'
+,p_diagram=>'{"position":{"x":890,"y":970},"z":2}'
+);
+wwv_flow_imp_shared.create_workflow_activity(
+ p_id=>wwv_flow_imp.id(10826381056558610)
+,p_workflow_version_id=>wwv_flow_imp.id(10826062933558607)
+,p_name=>'End'
+,p_static_id=>'New_2'
+,p_display_sequence=>30
+,p_activity_type=>'NATIVE_WORKFLOW_END'
+,p_attribute_01=>'COMPLETED'
+,p_diagram=>'{"position":{"x":1240,"y":970},"z":3}'
+);
+wwv_flow_imp_shared.create_workflow_transition(
+ p_id=>wwv_flow_imp.id(10826454264558611)
+,p_name=>'New'
+,p_transition_type=>'NORMAL'
+,p_from_activity_id=>wwv_flow_imp.id(10826123249558608)
+,p_to_activity_id=>wwv_flow_imp.id(10826291581558609)
+,p_diagram=>'{"source":{},"target":{},"vertices":[],"z":4,"label":{"distance":0.5,"offset":0}}'
+);
+wwv_flow_imp_shared.create_workflow_transition(
+ p_id=>wwv_flow_imp.id(10826523882558612)
+,p_name=>'New'
+,p_transition_type=>'NORMAL'
+,p_from_activity_id=>wwv_flow_imp.id(10826291581558609)
+,p_to_activity_id=>wwv_flow_imp.id(10826381056558610)
+,p_diagram=>'{"source":{},"target":{},"vertices":[],"z":5,"label":{"distance":0.5,"offset":0}}'
+);
+wwv_flow_imp.component_end;
+end;
+/

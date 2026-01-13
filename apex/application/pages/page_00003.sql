@@ -1,0 +1,298 @@
+prompt --application/pages/page_00003
+begin
+--   Manifest
+--     PAGE: 00003
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.11.30'
+,p_release=>'24.2.11'
+,p_default_workspace_id=>8596491594951640
+,p_default_application_id=>100
+,p_default_id_offset=>0
+,p_default_owner=>'APP_APEX'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>3
+,p_name=>'Total Dashboard'
+,p_alias=>'TOTAL-DASHBOARD'
+,p_step_title=>'Total Dashboard'
+,p_autocomplete_on_off=>'OFF'
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_page_component_map=>'04'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(10835898826587768)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#:t-BreadcrumbRegion--useBreadcrumbTitle'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>2531463326621247859
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_imp.id(10407050605115521)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>4072363345357175094
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(10836551895587768)
+,p_plug_name=>'1. Logs'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>10
+,p_location=>null
+,p_plug_source_type=>'NATIVE_JET_CHART'
+);
+wwv_flow_imp_page.create_jet_chart(
+ p_id=>wwv_flow_imp.id(10836959168587769)
+,p_region_id=>wwv_flow_imp.id(10836551895587768)
+,p_chart_type=>'bar'
+,p_title=>'System Logs'
+,p_height=>'400'
+,p_animation_on_display=>'auto'
+,p_animation_on_data_change=>'auto'
+,p_orientation=>'vertical'
+,p_data_cursor=>'auto'
+,p_data_cursor_behavior=>'auto'
+,p_hover_behavior=>'dim'
+,p_stack=>'on'
+,p_stack_label=>'on'
+,p_fill_multi_series_gaps=>false
+,p_zoom_and_scroll=>'off'
+,p_tooltip_rendered=>'Y'
+,p_show_series_name=>true
+,p_show_group_name=>false
+,p_show_value=>false
+,p_legend_rendered=>'off'
+);
+wwv_flow_imp_page.create_jet_chart_series(
+ p_id=>wwv_flow_imp.id(10838647304587770)
+,p_chart_id=>wwv_flow_imp.id(10836959168587769)
+,p_seq=>10
+,p_name=>'1. Query Log'
+,p_data_source_type=>'SQL'
+,p_data_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT TRUNC(operation_date) AS operation_day,',
+'       operation,',
+'       COUNT(*) AS total_operations',
+' FROM app_apex.person_log',
+'GROUP BY TRUNC(operation_date), operation',
+'ORDER BY operation_day, operation',
+''))
+,p_max_row_count=>20
+,p_series_name_column_name=>'OPERATION'
+,p_items_value_column_name=>'TOTAL_OPERATIONS'
+,p_items_label_column_name=>'OPERATION_DAY'
+,p_assigned_to_y2=>'off'
+,p_items_label_rendered=>true
+,p_items_label_position=>'insideBarEdge'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(10837417388587769)
+,p_chart_id=>wwv_flow_imp.id(10836959168587769)
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_title=>'Dia'
+,p_title_font_family=>'Arial'
+,p_title_font_style=>'normal'
+,p_title_font_size=>'12'
+,p_title_font_color=>'#000000'
+,p_format_type=>'date-short'
+,p_numeric_pattern=>'DD/MM/YYYY'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'auto'
+,p_minor_tick_rendered=>'off'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(10838025091587769)
+,p_chart_id=>wwv_flow_imp.id(10836959168587769)
+,p_axis=>'y'
+,p_is_rendered=>'on'
+,p_title=>unistr('Opera\00E7\00F5es')
+,p_title_font_family=>'Arial'
+,p_title_font_style=>'normal'
+,p_title_font_size=>'12'
+,p_title_font_color=>'#000000'
+,p_format_scaling=>'auto'
+,p_scaling=>'log'
+,p_baseline_scaling=>'zero'
+,p_step=>1
+,p_position=>'auto'
+,p_major_tick_rendered=>'auto'
+,p_minor_tick_rendered=>'auto'
+,p_tick_label_rendered=>'off'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(10825829219558605)
+,p_chart_id=>wwv_flow_imp.id(10836959168587769)
+,p_axis=>'y2'
+,p_is_rendered=>'off'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_position=>'auto'
+,p_major_tick_rendered=>'auto'
+,p_minor_tick_rendered=>'off'
+,p_tick_label_rendered=>'off'
+,p_split_dual_y=>'auto'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(10839243757587770)
+,p_plug_name=>'2. Types'
+,p_parent_plug_id=>wwv_flow_imp.id(10836551895587768)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'SUB_REGIONS'
+,p_location=>null
+,p_plug_source_type=>'NATIVE_JET_CHART'
+);
+wwv_flow_imp_page.create_jet_chart(
+ p_id=>wwv_flow_imp.id(10839624553587770)
+,p_region_id=>wwv_flow_imp.id(10839243757587770)
+,p_chart_type=>'pie'
+,p_animation_on_display=>'auto'
+,p_animation_on_data_change=>'auto'
+,p_hide_and_show_behavior=>'withRescale'
+,p_hover_behavior=>'dim'
+,p_stack=>'off'
+,p_stack_label=>'off'
+,p_connect_nulls=>'Y'
+,p_value_position=>'auto'
+,p_sorting=>'label-asc'
+,p_fill_multi_series_gaps=>true
+,p_tooltip_rendered=>'Y'
+,p_show_series_name=>true
+,p_show_group_name=>true
+,p_show_value=>true
+,p_show_label=>true
+,p_show_row=>true
+,p_show_start=>true
+,p_show_end=>true
+,p_show_progress=>true
+,p_show_baseline=>true
+,p_legend_rendered=>'off'
+,p_legend_position=>'auto'
+,p_overview_rendered=>'off'
+,p_horizontal_grid=>'auto'
+,p_vertical_grid=>'auto'
+,p_gauge_orientation=>'circular'
+,p_gauge_plot_area=>'on'
+,p_show_gauge_value=>true
+);
+wwv_flow_imp_page.create_jet_chart_series(
+ p_id=>wwv_flow_imp.id(10840147703587770)
+,p_chart_id=>wwv_flow_imp.id(10839624553587770)
+,p_seq=>10
+,p_name=>'Series 1'
+,p_data_source_type=>'SQL'
+,p_data_source=>'select 1 as qtd, type_name from app_apex.person_type'
+,p_max_row_count=>20
+,p_items_value_column_name=>'QTD'
+,p_items_label_column_name=>'TYPE_NAME'
+,p_items_label_rendered=>true
+,p_items_label_position=>'auto'
+,p_items_label_display_as=>'LABEL'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(10840736875587771)
+,p_plug_name=>'3. Total per Type'
+,p_parent_plug_id=>wwv_flow_imp.id(10836551895587768)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>4072358936313175081
+,p_plug_display_sequence=>10
+,p_plug_new_grid_row=>false
+,p_plug_display_point=>'SUB_REGIONS'
+,p_location=>null
+,p_plug_source_type=>'NATIVE_JET_CHART'
+);
+wwv_flow_imp_page.create_jet_chart(
+ p_id=>wwv_flow_imp.id(10841156390587771)
+,p_region_id=>wwv_flow_imp.id(10840736875587771)
+,p_chart_type=>'bar'
+,p_animation_on_display=>'auto'
+,p_animation_on_data_change=>'auto'
+,p_orientation=>'vertical'
+,p_hide_and_show_behavior=>'withRescale'
+,p_hover_behavior=>'dim'
+,p_stack=>'off'
+,p_stack_label=>'off'
+,p_connect_nulls=>'Y'
+,p_value_position=>'auto'
+,p_sorting=>'label-asc'
+,p_fill_multi_series_gaps=>true
+,p_tooltip_rendered=>'Y'
+,p_show_series_name=>true
+,p_show_group_name=>true
+,p_show_value=>true
+,p_show_label=>true
+,p_show_row=>true
+,p_show_start=>true
+,p_show_end=>true
+,p_show_progress=>true
+,p_show_baseline=>true
+,p_legend_rendered=>'off'
+,p_legend_position=>'auto'
+,p_overview_rendered=>'off'
+,p_horizontal_grid=>'auto'
+,p_vertical_grid=>'auto'
+,p_gauge_orientation=>'circular'
+,p_gauge_plot_area=>'on'
+,p_show_gauge_value=>true
+);
+wwv_flow_imp_page.create_jet_chart_series(
+ p_id=>wwv_flow_imp.id(10842810265587771)
+,p_chart_id=>wwv_flow_imp.id(10841156390587771)
+,p_seq=>10
+,p_name=>'3. Query'
+,p_data_source_type=>'SQL'
+,p_data_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select count (pt.type_name) as Total, pt.type_name as Type_Name',
+'  from app_apex.person p, app_apex.person_type pt',
+' where p.person_type_id = pt.person_type_id',
+'   --and p.person_flag = ''F''',
+'   group by pt.type_name, pt.type_name'))
+,p_max_row_count=>20
+,p_items_value_column_name=>'TOTAL'
+,p_items_label_column_name=>'TYPE_NAME'
+,p_assigned_to_y2=>'off'
+,p_items_label_rendered=>true
+,p_items_label_position=>'outsideBarEdge'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(10841600198587771)
+,p_chart_id=>wwv_flow_imp.id(10841156390587771)
+,p_axis=>'x'
+,p_is_rendered=>'on'
+,p_title=>'Count'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_major_tick_rendered=>'auto'
+,p_minor_tick_rendered=>'auto'
+,p_tick_label_rendered=>'on'
+,p_tick_label_rotation=>'auto'
+,p_tick_label_position=>'outside'
+);
+wwv_flow_imp_page.create_jet_chart_axis(
+ p_id=>wwv_flow_imp.id(10842261351587771)
+,p_chart_id=>wwv_flow_imp.id(10841156390587771)
+,p_axis=>'y'
+,p_is_rendered=>'on'
+,p_title=>'Total'
+,p_format_scaling=>'auto'
+,p_scaling=>'linear'
+,p_baseline_scaling=>'zero'
+,p_step=>1
+,p_position=>'auto'
+,p_major_tick_rendered=>'auto'
+,p_minor_tick_rendered=>'off'
+,p_tick_label_rendered=>'on'
+);
+wwv_flow_imp.component_end;
+end;
+/
