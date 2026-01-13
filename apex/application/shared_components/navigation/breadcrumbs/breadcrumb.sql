@@ -45,6 +45,12 @@ wwv_flow_imp_shared.create_menu_option(
 ,p_link=>'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
 ,p_page_id=>14
 );
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(10945699469678326)
+,p_short_name=>'People Report'
+,p_link=>'f?p=&APP_ID.:16:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>16
+);
 wwv_flow_imp.component_end;
 end;
 /

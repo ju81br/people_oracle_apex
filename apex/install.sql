@@ -45,6 +45,7 @@ prompt --install
 @@application/pages/page_00009.sql
 @@application/pages/page_00010.sql
 @@application/pages/page_00014.sql
+@@application/pages/page_00016.sql
 @@application/pages/page_09999.sql
 @@application/deployment/definition.sql
 @@application/deployment/checks.sql

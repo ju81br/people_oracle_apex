@@ -15,7 +15,7 @@ wwv_flow_imp_shared.create_list(
  p_id=>wwv_flow_imp.id(10407595181115524)
 ,p_name=>'Navigation Menu'
 ,p_list_status=>'PUBLIC'
-,p_version_scn=>41743719153766
+,p_version_scn=>41743721957475
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(10419286292115611)
@@ -61,6 +61,15 @@ wwv_flow_imp_shared.create_list_item(
 ,p_list_item_icon=>'fa-dashboard'
 ,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
 ,p_list_item_current_for_pages=>'3'
+);
+wwv_flow_imp_shared.create_list_item(
+ p_id=>wwv_flow_imp.id(10944703850678325)
+,p_list_item_display_sequence=>60
+,p_list_item_link_text=>'People Report'
+,p_list_item_link_target=>'f?p=&APP_ID.:16:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_icon=>'fa-table'
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'16'
 );
 wwv_flow_imp.component_end;
 end;
