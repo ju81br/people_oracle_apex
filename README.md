@@ -9,7 +9,7 @@ Project developed to show skills in:
 - Git versioning
 
 ## Structure
-- database/: database objects (tables, sequences, triggers)
+- database/: database objects (tables, sequences, triggers, packages)
 - apex/: APEX application export
 
 ## Status
