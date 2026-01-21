@@ -6,6 +6,7 @@ Project developed to show skills in:
 - PL/SQL
 - Autonomous Database
 - Database auditing with triggers
+- Unit test
 - Git versioning
 
 ## Structure
